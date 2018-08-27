@@ -1,12 +1,12 @@
 name: scoped
-description: dependency injection with scoped store
-version: 0.0.3
+description: simple dependency injection using a root scope inherited widget and a store factory
+version: 0.1.0
 homepage: http://github.com/agrapine/scoped
 authors:
   - Alexandru R. Agrapine <alexandru@agrapine.com>
 
 environment:
-  sdk: ">=2.0.0-dev.63.0 <3.0.0"
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
 
 dependencies:
   flutter:

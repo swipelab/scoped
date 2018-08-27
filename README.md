@@ -7,7 +7,7 @@ Example
 `pubspec.yaml`
 ```yaml
 dependencies:
-  scoped: ^0.0.3
+  scoped: ^0.1.0
 ```
 
 `lib\main.dart`
