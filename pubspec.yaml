@@ -6,7 +6,7 @@ authors:
   - Alexandru R. Agrapine <alexandru@agrapine.com>
 
 environment:
-  sdk: ">=2.0.0 <3.0.0"
+  sdk: ">=2.0.0-dev.63.0 <3.0.0"
 
 dependencies:
   flutter:
