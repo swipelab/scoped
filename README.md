@@ -1,6 +1,6 @@
-# di
+# scoped
 
-Raw dependency injection with a scoped store
+Flutter dependency injection with a scoped store
 
 Example
 
