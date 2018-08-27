@@ -60,5 +60,6 @@ class _StoreFactory<T> {
       print('Stack trace:\n $s');
       rethrow;
     }
+    return null; //this is only to silence the analyser
   }
 }
