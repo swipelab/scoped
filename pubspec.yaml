@@ -1,6 +1,6 @@
 name: scoped
 description: simple dependency injection using a root scope inherited widget and a store factory
-version: 0.1.1
+version: 0.1.2
 homepage: http://github.com/agrapine/scoped
 authors:
   - Alexandru R. Agrapine <alexandru@agrapine.com>

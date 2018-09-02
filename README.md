@@ -1,6 +1,6 @@
 # scoped
 
-Flutter dependency injection with a scoped store
+A simple scoped store allowing for quick access to global services/bloc's
 
 Example
 
@@ -27,7 +27,7 @@ class Service {
 
 class YourApp extends StatelessWidget {
   Wiget build(BuildingContext context){
-    return Text(Scope.get<Service>().name);
+    return Text(Scope.get<Service>(context).name);
   }
 }
 ```
