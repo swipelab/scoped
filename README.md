@@ -51,7 +51,7 @@ class Service extends Fluid {
     _name = value;
     notify();
   }
-  Service({String name}):_name=name;
+  Service(String name):_name=name;
 }
 
 class YourApp extends StatelessWidget {
