@@ -14,5 +14,5 @@ class Scope extends InheritedWidget {
       context.inheritFromWidgetOfExactType(Scope) as Scope;
 
   static T get<T>(BuildContext context) => of(context)._store.get<T>();
-  static call<T>(BuildContext context) => of(context)._store.call<T>();
+  static call<T>(BuildContext context) => of(context)._store.call<T>();  
 }
