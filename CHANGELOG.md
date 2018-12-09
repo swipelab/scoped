@@ -1,3 +1,5 @@
+## [0.3.0]
+  exposed access store in Scoped
 ## [0.2.0]
   added fluid
 
