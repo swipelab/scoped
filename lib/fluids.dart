@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:scoped/fluid.dart';
+import 'package:flutter/widgets.dart';
 
 // Fluid builder with multiple fluids
 typedef Widget FluidsWidgetBuilder(
