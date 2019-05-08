@@ -1,13 +1,13 @@
 name: scoped
 description: simple scoped store using inherited widget with instance factory (single, lazy & and scoped)
-version: 0.4.0
+version: 0.5.0
 homepage: http://github.com/agrapine/scoped
 authors:
   - Alexandru R. Agrapine <alexandru@agrapine.com>
   - Basile Raynaud <b.c.j.raynaud@gmail.com>
 
 environment:
-  sdk: ">=2.0.0-dev.28.0 <3.0.0"
+  sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
   flutter:
