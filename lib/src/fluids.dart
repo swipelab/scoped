@@ -1,4 +1,4 @@
-import 'package:scoped/fluid.dart';
+import 'package:scoped/src/fluid.dart';
 import 'package:flutter/widgets.dart';
 
 // Fluid builder with multiple fluids
@@ -17,19 +17,19 @@ class _FluidsBuilderState<T extends Fluid> extends State<FluidsBuilder> {
 
   void initState() {
     super.initState();
-    widget.fluids.forEach((f) => f.addListener(_onChange));
+    widget.fluids.forEach((f) => f.bind(_onChange));
   }
 
   void dispose() {
-    widget.fluids.forEach((f) => f.removeListener(_onChange));
+    widget.fluids.forEach((f) => f.free(_onChange));
     super.dispose();
   }
 
   void didUpdateWidget(FluidsBuilder oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.fluids != oldWidget.fluids) {
-      oldWidget.fluids.forEach((f) => f.removeListener(_onChange));
-      widget.fluids.forEach((f) => f.addListener(_onChange));
+      oldWidget.fluids.forEach((f) => f.free(_onChange));
+      widget.fluids.forEach((f) => f.bind(_onChange));
     }
   }
 

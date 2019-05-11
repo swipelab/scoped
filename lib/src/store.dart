@@ -2,7 +2,7 @@ enum _StoreFactoryType { transient, lazy, instance }
 
 typedef StoreFactoryFunc<T> = T Function();
 
-///Simple store
+///Simple instance store
 class Store {
   final _map = new Map<Type, _StoreFactory<dynamic>>();
 
@@ -16,14 +16,17 @@ class Store {
 
   call<T>() => get<T>();
 
+  ///registers transient instances ( a new instance is provider per request )
   addTransient<T>(StoreFactoryFunc<T> func) {
     _map[T] = _StoreFactory<T>(_StoreFactoryType.transient, func: func);
   }
 
+  ///registers lazy instances ( they get instantiated on first use )
   addLazy<T>(StoreFactoryFunc<T> func) {
     _map[T] = _StoreFactory<T>(_StoreFactoryType.lazy, func: func);
   }
 
+  ///registers singleton instances
   add<T>(T instance) {
     _map[T] = _StoreFactory<T>(_StoreFactoryType.instance, instance: instance);
   }
@@ -33,6 +36,8 @@ class Store {
   }
 }
 
+///StoreFactory
+///a little functor to help provide the right instance
 class _StoreFactory<T> {
   _StoreFactoryType type;
   final StoreFactoryFunc _func;

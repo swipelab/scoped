@@ -1,6 +1,10 @@
 # scoped
 
-A simple scoped store allowing for quick access to global services/bloc's
+A very pragmatic way to handle your state with one goal in mind:
+
+Simplicity
+
+
 
 Example
 
@@ -8,13 +12,13 @@ Example
 
 ```yaml
 dependencies:
-  scoped: ^0.2.0
+  scoped: ^1.0.0
 ```
 
 `lib\main.dart`
 
 ```dart
-import 'package:scoped/di.dart';
+import 'package:scoped/scoped.dart';
 //...
 
 void main() => runApp(Scope(
@@ -29,14 +33,48 @@ class Service {
 
 class YourApp extends StatelessWidget {
   Wiget build(BuildingContext context){
-    return Text(Scope.get<Service>(context).name);
+    return Bond<Service>(builder: (context, service)=> Text(service.name));
+  }
+}
+```
+
+`with bonds`
+```dart
+import 'package:scoped/scoped.dart';
+//...
+
+void main() => runApp(Scope(
+  store:Store()
+    ..add(Service('a great service')),
+  child: YourApp()));
+
+class Service extends Fluid {
+  String _name;
+  String name;
+  set name(String value){
+    _name = value;
+    notify();
+  }
+  Service(String name):_name=name;
+}
+
+class YourApp extends StatelessWidget {
+  Wiget build(BuildingContext context){
+    return Column(
+      children: [
+        Bond<Service>(
+          builder: (context, service) => Text(service.name)),
+        FlatButton(
+          child:Text("Change"),
+          onPressed:() => Scope.get<Service>(context).name = 'changed')
+      ]);
   }
 }
 ```
 
 `with fluid models`
 ```dart
-import 'package:scoped/di.dart';
+import 'package:scoped/scoped.dart';
 //...
 
 void main() => runApp(Scope(
