@@ -1,13 +1,13 @@
 name: scoped
 description: a pragmatic state management solution. comes with  instance store (single, lazy & and scoped) and handy connectors
-version: 0.6.1
-homepage: http://github.com/agrapine/scoped
+version: 1.9.0
+homepage: http://github.com/swipelab/scoped
 authors:
   - Alexandru R. Agrapine <alexandru@agrapine.com>
   - Basile Raynaud <b.c.j.raynaud@gmail.com>
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   flutter:

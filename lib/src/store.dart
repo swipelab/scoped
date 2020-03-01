@@ -21,12 +21,12 @@ class Store {
     _map[T] = _StoreFactory<T>(_StoreFactoryType.transient, func: func);
   }
 
-  ///registers lazy instances ( they get instantiated on first use )
+  ///registers lazy instances ( they get instantiated on first request )
   addLazy<T>(StoreFactoryFunc<T> func) {
     _map[T] = _StoreFactory<T>(_StoreFactoryType.lazy, func: func);
   }
 
-  ///registers singleton instances
+  ///registers instances
   add<T>(T instance) {
     _map[T] = _StoreFactory<T>(_StoreFactoryType.instance, instance: instance);
   }

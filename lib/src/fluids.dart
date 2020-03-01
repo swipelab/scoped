@@ -3,12 +3,12 @@ import 'package:flutter/widgets.dart';
 
 // Fluid builder with multiple fluids
 typedef Widget FluidsWidgetBuilder(
-    BuildContext context, List<Fluid> fluids);
+    BuildContext context, List<Fluid> states);
 
 class FluidsBuilder extends StatefulWidget {
-  final List<Fluid> fluids;
+  final List<Fluid> states;
   final FluidsWidgetBuilder builder;
-  FluidsBuilder({this.fluids, this.builder});
+  FluidsBuilder({this.states, this.builder});
   _FluidsBuilderState createState() => new _FluidsBuilderState();
 }
 
@@ -17,21 +17,21 @@ class _FluidsBuilderState<T extends Fluid> extends State<FluidsBuilder> {
 
   void initState() {
     super.initState();
-    widget.fluids.forEach((f) => f.bind(_onChange));
+    widget.states.forEach((f) => f.listen(_onChange));
   }
 
   void dispose() {
-    widget.fluids.forEach((f) => f.free(_onChange));
+    widget.states.forEach((f) => f.forget(_onChange));
     super.dispose();
   }
 
   void didUpdateWidget(FluidsBuilder oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.fluids != oldWidget.fluids) {
-      oldWidget.fluids.forEach((f) => f.free(_onChange));
-      widget.fluids.forEach((f) => f.bind(_onChange));
+    if (widget.states != oldWidget.states) {
+      oldWidget.states.forEach((f) => f.forget(_onChange));
+      widget.states.forEach((f) => f.listen(_onChange));
     }
   }
 
-  Widget build(BuildContext context) => widget.builder(context, widget.fluids);
+  Widget build(BuildContext context) => widget.builder(context, widget.states);
 }

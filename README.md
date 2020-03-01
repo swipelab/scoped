@@ -1,10 +1,16 @@
 # scoped
 
-A very pragmatic way to handle your state with one goal in mind:
+A very pragmatic way to access your services and state with one goal in mind:
 
 Simplicity
 
+Scoped is a made up of tree main components
 
+- `Store` - a simple service locator
+- `Scope` - an inherited widget to help getting access to your store
+- `Fluid` - a simple `Listenable` implementation for your models
+
+I hope you enjoy it.
 
 Example
 
@@ -12,97 +18,44 @@ Example
 
 ```yaml
 dependencies:
-  scoped: ^1.0.0
+  scoped: ^1.9.0
 ```
 
 `lib\main.dart`
 
 ```dart
 import 'package:scoped/scoped.dart';
-//...
-
-void main() => runApp(Scope(
-  store:Store()
-    ..add(Service('a great service')),
-  child: YourApp()));
+import 'package:scoped/material.dart';
 
 class Service {
+  final Ref<String> foo = Ref();
+
   final String name;
   Service(this.name);
-}
 
-class YourApp extends StatelessWidget {
-  Wiget build(BuildingContext context){
-    return Bond<Service>(builder: (context, service)=> Text(service.name));
+  change(){
+    foo.value = 'bar';
   }
 }
-```
-
-`with bonds`
-```dart
-import 'package:scoped/scoped.dart';
-//...
 
 void main() => runApp(Scope(
   store:Store()
     ..add(Service('a great service')),
   child: YourApp()));
 
-class Service extends Fluid {
-  String _name;
-  String name;
-  set name(String value){
-    _name = value;
-    notify();
-  }
-  Service(String name):_name=name;
-}
+
 
 class YourApp extends StatelessWidget {
   Wiget build(BuildingContext context){
     return Column(
-      children: [
-        Bond<Service>(
-          builder: (context, service) => Text(service.name)),
+      children:[
+        Text(context.get<Service>().name),
         FlatButton(
           child:Text("Change"),
-          onPressed:() => Scope.get<Service>(context).name = 'changed')
-      ]);
-  }
-}
-```
-
-`with fluid models`
-```dart
-import 'package:scoped/scoped.dart';
-//...
-
-void main() => runApp(Scope(
-  store:Store()
-    ..add(Service('a great service')),
-  child: YourApp()));
-
-class Service extends Fluid {
-  String _name;
-  String name;
-  set name(String value){
-    _name = value;
-    notify();
-  }
-  Service(String name):_name=name;
-}
-
-class YourApp extends StatelessWidget {
-  Wiget build(BuildingContext context){
-    return Column(
-      children: [
-        FluidBuilder<Service>(
-          fluid: Scope.get<Service>(context),
-          builder: (context, s) => Text(s.name)),
-        FlatButton(
-          child:Text("Change"),
-          onPressed:() => Scope.get<Service>(context).name = 'changed')
-      ]);
+          onPressed:() => context.get<Service>().change(),
+        context.get<Service>().foo.bindValue((_,v)=> Text(v))
+      ]
+    );
   }
 }
 ```

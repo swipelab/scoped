@@ -1,3 +1,12 @@
+### [1.9.0]
+  added ref
+  added context.get<T>()
+  added Ref<T>.bindValue(builder...)
+  added Fluid.bind(builder)
+  removed Binder
+  ....
+  min sdk: ">=2.6.0 <3.0.0"
+
 ### [1.0.0]
   added bond
   allows fluid to be mixed in with your models  
