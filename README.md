@@ -9,6 +9,8 @@ Scoped is a made up of tree main components
 - `Store` - a simple service locator
 - `Scope` - an inherited widget to help getting access to your store
 - `Fluid` - a simple `Listenable` implementation for your models
+- `Ref<T>` - observable value
+- `Mix<T>` - observable list
 
 I hope you enjoy it.
 
