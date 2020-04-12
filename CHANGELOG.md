@@ -1,8 +1,5 @@
-### [1.9.7]
-- replaces mix with strip
-
-### [1.9.4]
-- added mix
+### [1.9.8]
+- added strip
 
 ### [1.9.0]
 - added ref
