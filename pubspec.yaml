@@ -1,6 +1,6 @@
 name: scoped
 description: a pragmatic state management solution. comes with  instance store (single, lazy & and scoped) and handy connectors
-version: 1.9.3
+version: 1.9.4
 homepage: http://github.com/swipelab/scoped
 
 environment:

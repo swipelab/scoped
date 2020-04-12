@@ -3,7 +3,9 @@ import 'fluid.dart';
 
 //Observable List
 class Mix<T> with Fluid implements List<T> {
-  List<T> _list;
+  final List<T> _list;
+
+  Mix([Iterable<T> items]): _list = List<T>.from(items ?? []);
 
   @override
   T get first => _list.first;
