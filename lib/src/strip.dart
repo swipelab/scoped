@@ -1,11 +1,11 @@
 import 'dart:math';
 import 'fluid.dart';
 
-//Observable List
-class Mix<T> with Fluid implements List<T> {
+//A List that notifies for all mutations
+class Strip<T> with Fluid implements List<T> {
   final List<T> _list;
 
-  Mix([Iterable<T> items]): _list = List<T>.from(items ?? []);
+  Strip([Iterable<T> items]): _list = List<T>.from(items ?? []);
 
   @override
   T get first => _list.first;

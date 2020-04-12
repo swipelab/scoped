@@ -1,3 +1,6 @@
+### [1.9.5]
+- replaces mix with strip
+
 ### [1.9.4]
 - added mix
 
