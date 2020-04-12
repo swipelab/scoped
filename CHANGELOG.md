@@ -1,4 +1,4 @@
-### [1.9.6]
+### [1.9.7]
 - replaces mix with strip
 
 ### [1.9.4]

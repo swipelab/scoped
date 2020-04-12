@@ -20,7 +20,7 @@ Example
 
 ```yaml
 dependencies:
-  scoped: ^2.0.0
+  scoped: ^1.9.7
 ```
 
 `lib\main.dart`
