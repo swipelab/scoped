@@ -12,7 +12,6 @@ class Bond<T extends Fluid> extends StatelessWidget {
   final T fluid;
 
   Widget build(BuildContext context) {
-    return FluidBuilder(
-        fluid: fluid ?? Scope.of(context).store.get<T>(), builder: builder);
+    return FluidBuilder(fluid: fluid ?? Scope.of(context).store.get<T>(), builder: builder);
   }
 }

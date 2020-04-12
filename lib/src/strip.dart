@@ -5,7 +5,7 @@ import 'fluid.dart';
 class Strip<T> with Fluid implements List<T> {
   final List<T> _list;
 
-  Strip([Iterable<T> items]): _list = List<T>.from(items ?? []);
+  Strip([Iterable<T> items]) : _list = List<T>.from(items ?? []);
 
   @override
   T get first => _list.first;
@@ -85,16 +85,13 @@ class Strip<T> with Fluid implements List<T> {
   Iterable<R> expand<R>(Iterable<R> f(T element)) => _list.expand<R>(f);
 
   @override
-  void fillRange(int start, int end, [T fillValue]) =>
-      _list.fillRange(start, end, fillValue);
+  void fillRange(int start, int end, [T fillValue]) => _list.fillRange(start, end, fillValue);
 
   @override
-  T firstWhere(bool Function(T element) test, {T Function() orElse}) =>
-      _list.firstWhere(test, orElse: orElse);
+  T firstWhere(bool Function(T element) test, {T Function() orElse}) => _list.firstWhere(test, orElse: orElse);
 
   @override
-  R fold<R>(R initialValue, R Function(R previousValue, T element) combine) =>
-      _list.fold(initialValue, combine);
+  R fold<R>(R initialValue, R Function(R previousValue, T element) combine) => _list.fold(initialValue, combine);
 
   @override
   Iterable<T> followedBy(Iterable<T> other) => _list.followedBy(other);
@@ -109,8 +106,7 @@ class Strip<T> with Fluid implements List<T> {
   int indexOf(T element, [int start = 0]) => _list.indexOf(element, start);
 
   @override
-  int indexWhere(bool Function(T element) test, [int start = 0]) =>
-      _list.indexWhere(test, start);
+  int indexWhere(bool Function(T element) test, [int start = 0]) => _list.indexWhere(test, start);
 
   @override
   void insert(int index, T element) {
@@ -140,12 +136,10 @@ class Strip<T> with Fluid implements List<T> {
   int lastIndexOf(T element, [int start]) => _list.lastIndexOf(element, start);
 
   @override
-  int lastIndexWhere(bool Function(T element) test, [int start]) =>
-      _list.lastIndexWhere(test, start);
+  int lastIndexWhere(bool Function(T element) test, [int start]) => _list.lastIndexWhere(test, start);
 
   @override
-  T lastWhere(bool Function(T element) test, {T Function() orElse}) =>
-      _list.lastWhere(test, orElse: orElse);
+  T lastWhere(bool Function(T element) test, {T Function() orElse}) => _list.lastWhere(test, orElse: orElse);
 
   @override
   Iterable<R> map<R>(R Function(T e) f) => _list.map<R>(f);
@@ -223,8 +217,7 @@ class Strip<T> with Fluid implements List<T> {
   T get single => _list.single;
 
   @override
-  T singleWhere(bool Function(T element) test, {T Function() orElse}) =>
-      _list.singleWhere(test, orElse: orElse);
+  T singleWhere(bool Function(T element) test, {T Function() orElse}) => _list.singleWhere(test, orElse: orElse);
 
   @override
   Iterable<T> skip(int count) => _list.skip(count);

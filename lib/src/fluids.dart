@@ -2,8 +2,7 @@ import 'package:scoped/src/fluid.dart';
 import 'package:flutter/widgets.dart';
 
 // Fluid builder with multiple fluids
-typedef Widget FluidsWidgetBuilder(
-    BuildContext context, List<Fluid> states);
+typedef Widget FluidsWidgetBuilder(BuildContext context, List<Fluid> states);
 
 class FluidsBuilder extends StatefulWidget {
   final List<Fluid> states;

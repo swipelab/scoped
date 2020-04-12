@@ -2,11 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/widgets.dart';
 
-typedef Widget FluidBuilderDelegate<T extends Fluid>(
-    BuildContext context, T fluid);
+typedef Widget FluidBuilderDelegate<T extends Fluid>(BuildContext context, T fluid);
 
-typedef Widget NotifyBuilderChildDelegate<T extends Fluid>(
-    BuildContext context, T fluid, Widget child);
+typedef Widget NotifyBuilderChildDelegate<T extends Fluid>(BuildContext context, T fluid, Widget child);
 
 ///Subscribes to a Fluid model to build for each notification
 class FluidBuilder<T extends Fluid> extends StatefulWidget {
