@@ -37,7 +37,8 @@ void main() {
         child: Column(
           children: [
             Bond<Source>(
-                builder: (context, source) => Text(source.counter.toString(), textDirection: TextDirection.ltr)),
+                builder: (context, source) => Text(source.counter.toString(),
+                    textDirection: TextDirection.ltr)),
             Bond<Source>(
                 builder: (context, source) => MaterialButton(
                     key: buttonKey,
