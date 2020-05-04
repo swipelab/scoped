@@ -3,7 +3,7 @@ import 'fluid.dart';
 
 //A List that notifies for all mutations
 class Strip<T> with Fluid implements List<T> {
-  final List<T> _list;
+  List<T> _list;
 
   Strip([Iterable<T> items]) : _list = List<T>.from(items ?? []);
 
@@ -189,6 +189,17 @@ class Strip<T> with Fluid implements List<T> {
   @override
   void replaceRange(int start, int end, Iterable<T> replacement) {
     _list.replaceRange(start, end, replacement);
+    notify();
+  }
+
+  void replaceWith(Iterable<T> replacement) {
+    _list.clear();
+    _list.addAll(replacement);
+    notify();
+  }
+
+  void swap(List<T> list) {
+    _list = list;
     notify();
   }
 
