@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:scoped/src/bond.dart';
 import 'package:scoped/src/ref.dart';
 import 'package:scoped/src/scope.dart';
-import 'package:scoped/src/fluid.dart';
+import 'package:scoped/src/reactive.dart';
 
 typedef Widget ValueBuilderDelegate<T>(BuildContext context, T value);
 
@@ -12,12 +12,12 @@ extension ScopedContext on BuildContext {
   }
 }
 
-extension RefBuilder<T> on Ref<T> {
+extension RefBuilderExtension<T> on Ref<T> {
   bindValue(ValueBuilderDelegate<T> builder) => Bond<Ref<T>>(
-      fluid: this, builder: (context, s) => builder(context, s.value));
+      reactive: this, builder: (context, s) => builder(context, s.value));
 }
 
-extension FluildBuilderExtension<T extends Fluid> on T {
-  bind(FluidBuilderDelegate<T> builder) =>
-      Bond<T>(fluid: this, builder: builder);
+extension ReactiveBuilderExtension<T extends Reactive> on T {
+  bind(ReactiveBuilderDelegate<T> builder) =>
+      Bond<T>(reactive: this, builder: builder);
 }

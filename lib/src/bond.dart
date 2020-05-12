@@ -1,18 +1,17 @@
 library scoped;
 
 import 'package:flutter/widgets.dart';
-import 'package:scoped/src/fluid.dart';
+import 'package:scoped/src/reactive.dart';
 import 'package:scoped/src/scope.dart';
 
-///Bond is a convenient widget to help
-class Bond<T extends Fluid> extends StatelessWidget {
-  const Bond({this.builder, this.fluid});
+///Bond is a convenient widget
+class Bond<T extends Reactive> extends StatelessWidget {
+  const Bond({this.builder, this.reactive});
 
-  final FluidBuilderDelegate<T> builder;
-  final T fluid;
+  final ReactiveBuilderDelegate<T> builder;
+  final T reactive;
 
   Widget build(BuildContext context) {
-    return FluidBuilder(
-        fluid: fluid ?? Scope.of(context).store.get<T>(), builder: builder);
+    return ReactiveBuilder(reactive: reactive ?? Scope.of(context).store.get<T>(), builder: builder);
   }
 }

@@ -1,3 +1,7 @@
+### [2.0.0]
+- renamed strip to refs
+- renamed fluid to reactive
+
 ### [1.9.8]
 - added strip
 

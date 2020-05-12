@@ -4,7 +4,7 @@ import 'package:scoped/scoped.dart';
 void main() => runApp(Scope(store: Store()..add(AppState()), child: MyApp()));
 
 class AppState {
-  final Strip<int> lines = Strip();
+  final Refs<int> lines = Refs();
   final Ref<int> counter = Ref(0);
 
   save() {

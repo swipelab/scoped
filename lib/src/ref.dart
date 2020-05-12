@@ -1,7 +1,7 @@
-import 'package:scoped/src/fluid.dart';
+import 'package:scoped/src/reactive.dart';
 
-//Observable Value
-class Ref<T> with Fluid {
+//Reactive Value
+class Ref<T> with Reactive {
   Ref([this._value]);
 
   T _value;

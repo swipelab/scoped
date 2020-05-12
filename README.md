@@ -8,9 +8,9 @@ Scoped is a made up of tree main components
 
 - `Store` - a simple service locator
 - `Scope` - an inherited widget to help getting access to your store
-- `Fluid` - a simple `Listenable` implementation for your models
-- `Ref<T>` - observable value
-- `Strip<T>` - observable list
+- `Reactive` - a simple way to add reactivity to your models
+- `Ref<T>` - reactive value
+- `Refs<T>` - reactive list
 
 I hope you enjoy it.
 
@@ -20,7 +20,7 @@ Example
 
 ```yaml
 dependencies:
-  scoped: ^1.9.8
+  scoped: ^2.0.0
 ```
 
 `lib\main.dart`
@@ -31,7 +31,7 @@ import 'package:scoped/material.dart';
 
 class Service {
   final Ref<String> foo = Ref();
-  final Strip<String> foos = Strip();
+  final Refs<String> foos = Refs();
 
   final String name;
   Service(this.name);

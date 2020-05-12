@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:scoped/scoped.dart';
 
-class Source with Fluid {
+class Source with Reactive {
   Source(int value) : _counter = value;
 
   int _counter;

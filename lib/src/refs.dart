@@ -1,11 +1,10 @@
 import 'dart:math';
-import 'fluid.dart';
+import 'reactive.dart';
 
-//A List that notifies for all mutations
-class Strip<T> with Fluid implements List<T> {
+class Refs<T> with Reactive implements List<T> {
   List<T> _list;
 
-  Strip([Iterable<T> items]) : _list = List<T>.from(items ?? []);
+  Refs([Iterable<T> items]) : _list = List<T>.from(items ?? []);
 
   @override
   T get first => _list.first;
