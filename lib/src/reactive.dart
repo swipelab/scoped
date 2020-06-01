@@ -18,19 +18,19 @@ class _ReactiveBuilderState<T extends Reactive> extends State<ReactiveBuilder<T>
 
   void initState() {
     super.initState();
-    widget.reactive.addListener(_onChange);
+    widget.reactive.listen(_onChange);
   }
 
   void dispose() {
-    widget.reactive.removeListener(_onChange);
+    widget.reactive.forget(_onChange);
     super.dispose();
   }
 
   void didUpdateWidget(ReactiveBuilder oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.reactive != oldWidget.reactive) {
-      oldWidget.reactive.removeListener(_onChange);
-      widget.reactive.addListener(_onChange);
+      oldWidget.reactive.forget(_onChange);
+      widget.reactive.listen(_onChange);
     }
   }
 
@@ -41,9 +41,9 @@ class _ReactiveBuilderState<T extends Reactive> extends State<ReactiveBuilder<T>
 abstract class Reactive {
   final Set<VoidCallback> _listeners = Set<VoidCallback>();
 
-  void addListener(VoidCallback fn) => _listeners.add(fn);
+  void listen(VoidCallback fn) => _listeners.add(fn);
 
-  void removeListener(VoidCallback fn) => _listeners.remove(fn);
+  void forget(VoidCallback fn) => _listeners.remove(fn);
 
   int _currentVersion = 0;
   int _targetVersion = 0;

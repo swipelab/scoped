@@ -1,3 +1,7 @@
+### [2.0.1]
+- renamed Reactive.addListener to Reactive.listen
+- renamed Reactive.remoreListener to Reactive.forget
+
 ### [2.0.0]
 - renamed strip to refs
 - renamed fluid to reactive
