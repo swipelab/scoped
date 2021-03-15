@@ -6,6 +6,4 @@ export 'package:scoped/src/reactive.dart';
 export 'package:scoped/src/ref.dart';
 export 'package:scoped/src/refs.dart';
 
-export 'package:scoped/src/bond.dart';
-
 export 'package:scoped/src/extension.dart';

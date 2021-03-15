@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:scoped/src/bond.dart';
 import 'package:scoped/src/ref.dart';
 import 'package:scoped/src/scope.dart';
 import 'package:scoped/src/reactive.dart';
@@ -13,11 +12,11 @@ extension ScopedContext on BuildContext {
 }
 
 extension RefBuilderExtension<T> on Ref<T> {
-  bindValue(ValueBuilderDelegate<T> builder) => Bond<Ref<T>>(
+  bindValue(ValueBuilderDelegate<T> builder) => ReactiveBuilder<Ref<T>>(
       reactive: this, builder: (context, s) => builder(context, s.value));
 }
 
 extension ReactiveBuilderExtension<T extends Reactive> on T {
   bind(ReactiveBuilderDelegate<T> builder) =>
-      Bond<T>(reactive: this, builder: builder);
+      ReactiveBuilder<T>(reactive: this, builder: builder);
 }

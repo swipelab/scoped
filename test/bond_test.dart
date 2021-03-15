@@ -36,10 +36,10 @@ void main() {
         textDirection: TextDirection.ltr,
         child: Column(
           children: [
-            Bond<Source>(
+            ReactiveBuilder<Source>(
                 builder: (context, source) => Text(source.counter.toString(),
                     textDirection: TextDirection.ltr)),
-            Bond<Source>(
+            ReactiveBuilder<Source>(
                 builder: (context, source) => MaterialButton(
                     key: buttonKey,
                     child: Text('get to the correct answer'),

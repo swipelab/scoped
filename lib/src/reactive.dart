@@ -37,8 +37,10 @@ class _ReactiveBuilderState<T extends Reactive> extends State<ReactiveBuilder<T>
   Widget build(BuildContext context) => widget.builder(context, widget.reactive);
 }
 
+
+
 ///Listenable implementation for models
-abstract class Reactive {
+mixin Reactive {
   final Set<VoidCallback> _listeners = Set<VoidCallback>();
 
   void listen(VoidCallback fn) => _listeners.add(fn);
