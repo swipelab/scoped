@@ -47,7 +47,7 @@ class MyHomePage extends StatelessWidget {
                 .counter
                 .bindValue((context, counter) => Text(
                       '$counter',
-                      style: Theme.of(context).textTheme.display1,
+                      style: Theme.of(context).textTheme.bodyText1,
                     )),
             Divider(),
             context.get<AppState>().lines.bind((context, lines) => ListBody(
@@ -67,10 +67,10 @@ class MyHomePage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            FlatButton(
+            TextButton(
                 child: Icon(Icons.add),
                 onPressed: () => context.get<AppState>().counter.value++),
-            FlatButton(
+            TextButton(
               child: Icon(Icons.save),
               onPressed: context.get<AppState>().save,
             ),

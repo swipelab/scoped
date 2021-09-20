@@ -4,7 +4,7 @@ import 'reactive.dart';
 class Refs<T> with Reactive implements List<T> {
   List<T> _list;
 
-  Refs([Iterable<T> items]) : _list = List<T>.from(items ?? []);
+  Refs([Iterable<T>? items]) : _list = List<T>.from(items ?? [] as Iterable<T>);
 
   @override
   T get first => _list.first;

@@ -37,9 +37,11 @@ void main() {
         child: Column(
           children: [
             ReactiveBuilder<Source>(
+                reactive: source,
                 builder: (context, source) => Text(source.counter.toString(),
                     textDirection: TextDirection.ltr)),
             ReactiveBuilder<Source>(
+                reactive: source,
                 builder: (context, source) => MaterialButton(
                     key: buttonKey,
                     child: Text('get to the correct answer'),

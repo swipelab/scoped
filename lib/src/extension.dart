@@ -6,7 +6,7 @@ import 'package:scoped/src/reactive.dart';
 typedef Widget ValueBuilderDelegate<T>(BuildContext context, T value);
 
 extension ScopedContext on BuildContext {
-  T get<T>() {
+  T? get<T>() {
     return Scope.get<T>(this);
   }
 }

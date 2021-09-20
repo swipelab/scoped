@@ -7,8 +7,8 @@ class Store {
   final _map = new Map<Type, _StoreFactory<dynamic>>();
 
   T get<T>() {
-    _StoreFactory<T> sf = _map[T];
-    if (sf == null) {
+    final sf = _map[T];
+    if (sf is! _StoreFactory<T>) {
       throw new Exception("${T.toString()} is not mapped in store.");
     }
     return sf.instance;
@@ -41,7 +41,7 @@ class Store {
 class _StoreFactory<T> {
   _StoreFactoryType type;
   final StoreFactoryFunc _func;
-  Object _instance;
+  T? _instance;
 
   _StoreFactory(this.type, {func, instance})
       : _func = func,
@@ -65,6 +65,5 @@ class _StoreFactory<T> {
       print('Stack trace:\n $s');
       rethrow;
     }
-    return null; //this is only to silence the analyser
   }
 }

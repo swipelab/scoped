@@ -2,16 +2,21 @@ import 'package:scoped/src/reactive.dart';
 import 'package:flutter/widgets.dart';
 
 // Fluid builder with multiple reactive models
-typedef Widget ReactivesWidgetBuilder(BuildContext context, List<Reactive> models);
+typedef Widget ReactivesWidgetBuilder(
+    BuildContext context, List<Reactive> models);
 
 class ReactivesBuilder extends StatefulWidget {
   final List<Reactive> states;
   final ReactivesWidgetBuilder builder;
-  ReactivesBuilder({this.states, this.builder});
+  ReactivesBuilder({
+    required this.states,
+    required this.builder,
+  });
   _ReactivesBuilderState createState() => new _ReactivesBuilderState();
 }
 
-class _ReactivesBuilderState<T extends Reactive> extends State<ReactivesBuilder> {
+class _ReactivesBuilderState<T extends Reactive>
+    extends State<ReactivesBuilder> {
   void _onChange() => setState(() {});
 
   void initState() {

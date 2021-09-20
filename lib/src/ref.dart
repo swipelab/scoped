@@ -1,7 +1,7 @@
 import 'package:scoped/src/reactive.dart';
 
 class ReactiveController {
-  final _reactives = List<Reactive>();
+  final _reactives = <Reactive>[];
 
   add(Reactive reactive) => _reactives.add(reactive);
   remove(Reactive reactive) => _reactives.remove(reactive);
@@ -9,8 +9,10 @@ class ReactiveController {
 
 //Reactive Value
 class Ref<T> with Reactive {
-  Ref({T value, ReactiveController controller})
-      : _value = value,
+  Ref({
+    required T value,
+    required ReactiveController controller,
+  })  : _value = value,
         _controller = controller {
     _controller.add(this);
   }
