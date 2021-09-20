@@ -1,3 +1,6 @@
+### [2.1.0]
+- NNBD
+
 ### [2.0.1]
 - renamed Reactive.addListener to Reactive.listen
 - renamed Reactive.remoreListener to Reactive.forget
