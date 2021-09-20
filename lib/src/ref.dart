@@ -9,8 +9,8 @@ class ReactiveController {
 
 //Reactive Value
 class Ref<T> with Reactive {
-  Ref({
-    required T value,
+  Ref(
+    T value, {
     ReactiveController? controller,
   })  : _value = value,
         _controller = controller {
