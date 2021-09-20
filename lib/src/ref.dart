@@ -11,13 +11,13 @@ class ReactiveController {
 class Ref<T> with Reactive {
   Ref({
     required T value,
-    required ReactiveController controller,
+    ReactiveController? controller,
   })  : _value = value,
         _controller = controller {
-    _controller.add(this);
+    _controller?.add(this);
   }
 
-  final ReactiveController _controller;
+  final ReactiveController? _controller;
 
   T _value;
 
@@ -31,6 +31,6 @@ class Ref<T> with Reactive {
   }
 
   void dispose() {
-    _controller.remove(this);
+    _controller?.remove(this);
   }
 }

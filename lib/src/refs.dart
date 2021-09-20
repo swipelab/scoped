@@ -72,7 +72,7 @@ class Refs<T> with Reactive implements List<T> {
   }
 
   @override
-  bool contains(Object element) => _list.contains(element);
+  bool contains(Object? element) => _list.contains(element);
 
   @override
   T elementAt(int index) => _list.elementAt(index);
@@ -84,11 +84,11 @@ class Refs<T> with Reactive implements List<T> {
   Iterable<R> expand<R>(Iterable<R> f(T element)) => _list.expand<R>(f);
 
   @override
-  void fillRange(int start, int end, [T fillValue]) =>
+  void fillRange(int start, int end, [T? fillValue]) =>
       _list.fillRange(start, end, fillValue);
 
   @override
-  T firstWhere(bool Function(T element) test, {T Function() orElse}) =>
+  T firstWhere(bool Function(T element) test, {T Function()? orElse}) =>
       _list.firstWhere(test, orElse: orElse);
 
   @override
@@ -136,14 +136,14 @@ class Refs<T> with Reactive implements List<T> {
   String join([String separator = ""]) => _list.join(separator);
 
   @override
-  int lastIndexOf(T element, [int start]) => _list.lastIndexOf(element, start);
+  int lastIndexOf(T element, [int? start]) => _list.lastIndexOf(element, start);
 
   @override
-  int lastIndexWhere(bool Function(T element) test, [int start]) =>
+  int lastIndexWhere(bool Function(T element) test, [int? start]) =>
       _list.lastIndexWhere(test, start);
 
   @override
-  T lastWhere(bool Function(T element) test, {T Function() orElse}) =>
+  T lastWhere(bool Function(T element) test, {T Function()? orElse}) =>
       _list.lastWhere(test, orElse: orElse);
 
   @override
@@ -153,7 +153,7 @@ class Refs<T> with Reactive implements List<T> {
   T reduce(T Function(T value, T element) combine) => _list.reduce(combine);
 
   @override
-  bool remove(Object value) {
+  bool remove(Object? value) {
     final result = _list.remove(value);
     if (result) notify();
     return result;
@@ -224,7 +224,7 @@ class Refs<T> with Reactive implements List<T> {
   }
 
   @override
-  void shuffle([Random random]) {
+  void shuffle([Random? random]) {
     _list.shuffle(random);
     notify();
   }
@@ -233,7 +233,7 @@ class Refs<T> with Reactive implements List<T> {
   T get single => _list.single;
 
   @override
-  T singleWhere(bool Function(T element) test, {T Function() orElse}) =>
+  T singleWhere(bool Function(T element) test, {T Function()? orElse}) =>
       _list.singleWhere(test, orElse: orElse);
 
   @override
@@ -243,13 +243,13 @@ class Refs<T> with Reactive implements List<T> {
   Iterable<T> skipWhile(bool Function(T value) test) => _list.skipWhile(test);
 
   @override
-  void sort([int Function(T a, T b) compare]) {
+  void sort([int Function(T a, T b)? compare]) {
     _list.sort(compare);
     notify();
   }
 
   @override
-  List<T> sublist(int start, [int end]) => _list.sublist(start, end);
+  List<T> sublist(int start, [int? end]) => _list.sublist(start, end);
 
   @override
   Iterable<T> take(int count) => _list.take(count);
